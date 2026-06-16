@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Job Refurbish</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Menggunakan Background Forklift dari Unsplash */
         body {
@@ -132,6 +133,7 @@
             flex: 1;
         }
 
+        /* Tombol Kirim Terjaga Strukturnya + Fleksibel dengan Ikon */
         .btn-kirim {
             background-color: #25D366;
             color: white;
@@ -145,6 +147,10 @@
             transition: background 0.3s, transform 0.1s;
             margin-top: 15px;
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Jarak antara logo WA dan teks */
         }
 
         .btn-kirim:hover {
@@ -307,7 +313,9 @@
                 </div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPerbaikan()">Kirim Laporan Perbaikan</button>
+            <button type="button" class="btn-kirim" onclick="kirimPerbaikan()">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Perbaikan
+            </button>
         </form>
     </div>
 
@@ -374,7 +382,9 @@
                 </div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPenarikan()">Kirim Laporan Penarikan</button>
+            <button type="button" class="btn-kirim" onclick="kirimPenarikan()">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Penarikan
+            </button>
         </form>
     </div>
 
@@ -441,7 +451,9 @@
                 </div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPengiriman()">Kirim Laporan Pengiriman</button>
+            <button type="button" class="btn-kirim" onclick="kirimPengiriman()">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Pengiriman
+            </button>
         </form>
     </div>
 
