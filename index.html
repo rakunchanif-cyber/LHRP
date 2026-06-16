@@ -1,1 +1,543 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pelaporan Unit</title>
+    <style>
+        /* Menggunakan Background Forklift dari Unsplash */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Container Responsif (Bisa menyesuaikan HP & Laptop) */
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-size: 16px;
+        }
+        
+        /* Menu Tab Responsif */
+        .menu-tabs {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            white-space: nowrap;
+            padding: 12px 8px;
+            font-size: 13px;
+            font-weight: bold;
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #f39c12;
+            color: white;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+        }
+        
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fdfdfd;
+            border-left: 4px solid #f39c12;
+            border-radius: 4px;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #34495e;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #f39c12;
+            outline: none;
+            box-shadow: 0 0 5px rgba(243, 156, 18, 0.2);
+        }
+
+        /* Pengaturan Baris Input (Otomatis vertikal di HP, horizontal di Laptop) */
+        .row {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        .btn-kirim {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s, transform 0.1s;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-kirim:hover {
+            background-color: #128C7E;
+        }
+
+        .btn-kirim:active {
+            transform: scale(0.98);
+        }
+
+        /* RESPONSIVE BREAKPOINT UNTUK HP */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+                margin: 5px auto;
+                padding: 15px;
+                border-radius: 8px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .tab-btn {
+                font-size: 11px;
+                padding: 10px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sistem Pelaporan Unit</h2>
+    
+    <div class="menu-tabs">
+        <button class="tab-btn active" onclick="switchForm('perbaikan')">PERBAIKAN UNIT</button>
+        <button class="tab-btn" onclick="switchForm('penarikan')">PENARIKAN UNIT</button>
+        <button class="tab-btn" onclick="switchForm('pengiriman')">PENGIRIMAN UNIT</button>
+    </div>
+
+    <div id="form-perbaikan" class="form-section active">
+        <form id="js-form-perbaikan">
+            <div class="form-group">
+                <label>Tanggal (DATE):</label>
+                <input type="date" id="p_date_main">
+            </div>
+
+            <h3>DETAIL UNIT</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Unit Type:</label>
+                        <input type="text" id="p_unit_type">
+                    </div>
+                    <div class="form-group">
+                        <label>Serial Number:</label>
+                        <input type="text" id="p_sn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Year:</label>
+                        <input type="text" id="p_year" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Hour Meter:</label>
+                        <input type="text" id="p_hm">
+                    </div>
+                </div>
+            </div>
+
+            <h3>JOB DESCRIPTIONS</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Job Type:</label>
+                        <input type="text" id="p_job_type">
+                    </div>
+                    <div class="form-group">
+                        <label>Problem Date:</label>
+                        <input type="date" id="p_prob_date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Problem:</label>
+                    <textarea id="p_problem" rows="2">-</textarea>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <input type="text" id="p_status" value="RFU">
+                    </div>
+                    <div class="form-group">
+                        <label>RFU Date:</label>
+                        <input type="date" id="p_rfu_date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Action:</label>
+                    <textarea id="p_action" rows="2">-</textarea>
+                </div>
+            </div>
+
+            <h3>RECOMMENDATIONS</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Part Number:</label>
+                        <input type="text" id="p_p_num1">
+                    </div>
+                    <div class="form-group">
+                        <label>Part Name:</label>
+                        <input type="text" id="p_p_name1">
+                    </div>
+                    <div class="form-group">
+                        <label>Qty:</label>
+                        <input type="text" id="p_qty1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Remarks:</label>
+                    <input type="text" id="p_rem1" value="-">
+                </div>
+            </div>
+
+            <h3>INSTALL PART</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Part Number:</label>
+                        <input type="text" id="p_inst_num" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Part Name:</label>
+                        <input type="text" id="p_inst_name" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Qty:</label>
+                        <input type="text" id="p_inst_qty" value="-">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>No Job:</label>
+                        <input type="text" id="p_no_job" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>No PR:</label>
+                        <input type="text" id="p_no_pr" value="-">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Remarks:</label>
+                    <input type="text" id="p_inst_rem" value="-">
+                </div>
+            </div>
+
+            <button type="button" class="btn-kirim" onclick="kirimPerbaikan()">Kirim Laporan Perbaikan</button>
+        </form>
+    </div>
+
+    <div id="form-penarikan" class="form-section">
+        <form id="js-form-penarikan">
+            <div class="form-group">
+                <label>Customer:</label>
+                <input type="text" id="tarik_customer">
+            </div>
+
+            <h3>DETAIL UNIT (PENARIKAN)</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Type Unit:</label>
+                        <input type="text" id="tarik_type">
+                    </div>
+                    <div class="form-group">
+                        <label>SN Unit:</label>
+                        <input type="text" id="tarik_sn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Year:</label>
+                        <input type="text" id="tarik_year">
+                    </div>
+                    <div class="form-group">
+                        <label>HM:</label>
+                        <input type="text" id="tarik_hm">
+                    </div>
+                </div>
+            </div>
+
+            <h3>SPESIFIKASI TAMBAHAN</h3>
+            <div class="section">
+                <div class="form-group">
+                    <label>Battery SN:</label>
+                    <input type="text" id="tarik_battery">
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Battery Spare 1:</label>
+                        <input type="text" id="tarik_spare1" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Battery Spare 2:</label>
+                        <input type="text" id="tarik_spare2" value="-">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Charger SN:</label>
+                        <input type="text" id="tarik_charger">
+                    </div>
+                    <div class="form-group">
+                        <label>Trolly:</label>
+                        <input type="text" id="tarik_trolly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Remark:</label>
+                    <textarea id="tarik_remark" rows="2"></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="btn-kirim" onclick="kirimPenarikan()">Kirim Laporan Penarikan</button>
+        </form>
+    </div>
+
+    <div id="form-pengiriman" class="form-section">
+        <form id="js-form-pengiriman">
+            <div class="form-group">
+                <label>Customer:</label>
+                <input type="text" id="kirim_customer">
+            </div>
+
+            <h3>DETAIL UNIT (PENGIRIMAN)</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Type Unit:</label>
+                        <input type="text" id="kirim_type">
+                    </div>
+                    <div class="form-group">
+                        <label>SN Unit:</label>
+                        <input type="text" id="kirim_sn">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Year:</label>
+                        <input type="text" id="kirim_year">
+                    </div>
+                    <div class="form-group">
+                        <label>HM:</label>
+                        <input type="text" id="kirim_hm">
+                    </div>
+                </div>
+            </div>
+
+            <h3>SPESIFIKASI TAMBAHAN</h3>
+            <div class="section">
+                <div class="form-group">
+                    <label>Battery SN:</label>
+                    <input type="text" id="kirim_battery">
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Battery Spare 1:</label>
+                        <input type="text" id="kirim_spare1" value="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Battery Spare 2:</label>
+                        <input type="text" id="kirim_spare2" value="-">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Charger SN:</label>
+                        <input type="text" id="kirim_charger">
+                    </div>
+                    <div class="form-group">
+                        <label>Trolly:</label>
+                        <input type="text" id="kirim_trolly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Remark:</label>
+                    <textarea id="kirim_remark" rows="2"></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="btn-kirim" onclick="kirimPengiriman()">Kirim Laporan Pengiriman</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+function switchForm(formType) {
+    const forms = document.querySelectorAll('.form-section');
+    forms.forEach(f => f.classList.remove('active'));
+    
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    document.getElementById('form-' + formType).classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+
+// 1. Logika Kirim PERBAIKAN (Tanpa Nomor Lambung)
+function kirimPerbaikan() {
+    let text = `*UPDATE JOB REFURBISH* _\n`;
+    text += `*DATE :* ${document.getElementById('p_date_main').value}\n\n`;
+    text += `> _*DETAIL UNIT*_\n`;
+    text += `*UNIT TYPE :* ${document.getElementById('p_unit_type').value}\n`;
+    text += `*SERIAL NUMBER :* ${document.getElementById('p_sn').value}\n`;
+    text += `*YEAR :* ${document.getElementById('p_year').value}\n`;
+    text += `*HOUR METER :* ${document.getElementById('p_hm').value}\n\n`;
+    text += `> _*JOB DESCRIPTIONS*_\n`;
+    text += `*JOB TYPE :* ${document.getElementById('p_job_type').value}\n`;
+    text += `*PROBLEM DATE :* ${document.getElementById('p_prob_date').value || '-'}\n`;
+    text += `*PROBLEM :* ${document.getElementById('p_problem').value}\n`;
+    text += `*STATUS :* ${document.getElementById('p_status').value}\n`;
+    text += `*RFU DATE :* ${document.getElementById('p_rfu_date').value || '-'}\n`;
+    text += `*ACTION :* ${document.getElementById('p_action').value}\n\n`;
+    text += `> _*RECOMMENDATIONS*_\n`;
+    text += `*PART NUMBER :* ${document.getElementById('p_p_num1').value}\n`;
+    text += `*PART NAME :* ${document.getElementById('p_p_name1').value}\n`;
+    text += `*QTY :* ${document.getElementById('p_qty1').value}\n`;
+    text += `*REMARKS :* ${document.getElementById('p_rem1').value}\n\n`;
+    text += `> _*INSTALL PART*_\n`;
+    text += `*PART NUMBER :* ${document.getElementById('p_inst_num').value}\n`;
+    text += `*PART NAME :* ${document.getElementById('p_inst_name').value}\n`;
+    text += `*QTY :* ${document.getElementById('p_inst_qty').value}\n`;
+    text += `*NO JOB :* ${document.getElementById('p_no_job').value}\n`;
+    text += `*NO PR :* ${document.getElementById('p_no_pr').value}\n`;
+    text += `*REMARKS :* ${document.getElementById('p_inst_rem').value}`;
+
+    bukaWhatsApp(text);
+}
+
+// 2. Logika Kirim PENARIKAN (Dengan Battery Spare 1 & 2)
+function kirimPenarikan() {
+    let text = `FORM PENGIRIMAN DAN PENARIKAN UNIT\n`;
+    text += `*JOB TYPE :* PENARIKAN\n\n`;
+    text += `*CUSTOMER :* ${document.getElementById('tarik_customer').value}\n\n`;
+    text += `> _*DETAIL UNIT*_\n`;
+    text += `*TYPE UNIT :* ${document.getElementById('tarik_type').value}\n`;
+    text += `*SN UNIT :* ${document.getElementById('tarik_sn').value}\n`;
+    text += `*YEAR :* ${document.getElementById('tarik_year').value}\n`;
+    text += `*HM :* ${document.getElementById('tarik_hm').value}\n\n`;
+    text += `*BATTERY SN :* ${document.getElementById('tarik_battery').value}\n`;
+    text += `*BATTERY SPARE 1 :* ${document.getElementById('tarik_spare1').value}\n`;
+    text += `*BATTERY SPARE 2 :* ${document.getElementById('tarik_spare2').value}\n\n`;
+    text += `*CHARGER SN :* ${document.getElementById('tarik_charger').value}\n\n`;
+    text += `*TROLLY :* ${document.getElementById('tarik_trolly').value}\n\n`;
+    text += `*REMARK :* ${document.getElementById('tarik_remark').value}`;
+
+    bukaWhatsApp(text);
+}
+
+// 3. Logika Kirim PENGIRIMAN (Dengan Battery Spare 1 & 2)
+function kirimPengiriman() {
+    let text = `FORM PENGIRIMAN DAN PENARIKAN UNIT\n`;
+    text += `*JOB TYPE :* PENGIRIMAN\n\n`;
+    text += `*CUSTOMER :* ${document.getElementById('kirim_customer').value}\n\n`;
+    text += `> _*DETAIL UNIT*_\n`;
+    text += `*TYPE UNIT :* ${document.getElementById('kirim_type').value}\n`;
+    text += `*SN UNIT :* ${document.getElementById('kirim_sn').value}\n`;
+    text += `*YEAR :* ${document.getElementById('kirim_year').value}\n`;
+    text += `*HM :* ${document.getElementById('kirim_hm').value}\n\n`;
+    text += `*BATTERY SN :* ${document.getElementById('kirim_battery').value}\n`;
+    text += `*BATTERY SPARE 1 :* ${document.getElementById('kirim_spare1').value}\n`;
+    text += `*BATTERY SPARE 2 :* ${document.getElementById('kirim_spare2').value}\n\n`;
+    text += `*CHARGER SN :* ${document.getElementById('kirim_charger').value}\n\n`;
+    text += `*TROLLY :* ${document.getElementById('kirim_trolly').value}\n\n`;
+    text += `*REMARK :* ${document.getElementById('kirim_remark').value}`;
+
+    bukaWhatsApp(text);
+}
+
+function bukaWhatsApp(teksMurni) {
+    const urlEncodedText = encodeURIComponent(teksMurni);
+    const url = `https://api.whatsapp.com/send?text=${urlEncodedText}`;
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
 
