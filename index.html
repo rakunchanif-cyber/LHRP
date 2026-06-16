@@ -212,7 +212,7 @@
                 <div class="row">
                     <div class="form-group">
                         <label>Year:</label>
-                        <input type="text" id="p_year"
+                        <input type="text" id="p_year" value="">
                     </div>
                     <div class="form-group">
                         <label>Hour Meter:</label>
@@ -271,7 +271,7 @@
                 </div>
                 <div class="form-group">
                     <label>Remarks:</label>
-                    <input type="text" id="p_rem1"
+                    <input type="text" id="p_rem1" value="">
                 </div>
             </div>
 
@@ -280,30 +280,30 @@
                 <div class="row">
                     <div class="form-group">
                         <label>Part Number:</label>
-                        <input type="text" id="p_inst_num"
+                        <input type="text" id="p_inst_num" value="">
                     </div>
                     <div class="form-group">
                         <label>Part Name:</label>
-                        <input type="text" id="p_inst_name"
+                        <input type="text" id="p_inst_name" value="">
                     </div>
                     <div class="form-group">
                         <label>Qty:</label>
-                        <input type="text" id="p_inst_qty"
+                        <input type="text" id="p_inst_qty" value="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>No Job:</label>
-                        <input type="text" id="p_no_job"
+                        <input type="text" id="p_no_job" value="">
                     </div>
                     <div class="form-group">
                         <label>No PR:</label>
-                        <input type="text" id="p_no_pr"
+                        <input type="text" id="p_no_pr" value="">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Remarks:</label>
-                    <input type="text" id="p_inst_rem"
+                    <input type="text" id="p_inst_rem" value="">
                 </div>
             </div>
 
@@ -351,11 +351,11 @@
                 <div class="row">
                     <div class="form-group">
                         <label>Battery Spare 1:</label>
-                        <input type="text" id="tarik_spare1"
+                        <input type="text" id="tarik_spare1" value="">
                     </div>
                     <div class="form-group">
                         <label>Battery Spare 2:</label>
-                        <input type="text" id="tarik_spare2"
+                        <input type="text" id="tarik_spare2" value="">
                     </div>
                 </div>
                 <div class="row">
@@ -418,11 +418,11 @@
                 <div class="row">
                     <div class="form-group">
                         <label>Battery Spare 1:</label>
-                        <input type="text" id="kirim_spare1" value="-">
+                        <input type="text" id="kirim_spare1" value="">
                     </div>
                     <div class="form-group">
                         <label>Battery Spare 2:</label>
-                        <input type="text" id="kirim_spare2" value="-">
+                        <input type="text" id="kirim_spare2" value="">
                     </div>
                 </div>
                 <div class="row">
@@ -456,10 +456,12 @@ function switchForm(formType) {
     buttons.forEach(b => b.classList.remove('active'));
     
     document.getElementById('form-' + formType).classList.add('active');
-    event.currentTarget.classList.add('active');
+    if(event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
 }
 
-// 1. Logika Kirim PERBAIKAN (Tanpa Nomor Lambung)
+// 1. Logika Kirim PERBAIKAN
 function kirimPerbaikan() {
     let text = `*UPDATE JOB REFURBISH* _\n`;
     text += `*DATE :* ${document.getElementById('p_date_main').value}\n\n`;
@@ -491,7 +493,7 @@ function kirimPerbaikan() {
     bukaWhatsApp(text);
 }
 
-// 2. Logika Kirim PENARIKAN (Dengan Battery Spare 1 & 2)
+// 2. Logika Kirim PENARIKAN
 function kirimPenarikan() {
     let text = `FORM PENGIRIMAN DAN PENARIKAN UNIT\n`;
     text += `*JOB TYPE :* PENARIKAN\n\n`;
@@ -511,7 +513,7 @@ function kirimPenarikan() {
     bukaWhatsApp(text);
 }
 
-// 3. Logika Kirim PENGIRIMAN (Dengan Battery Spare 1 & 2)
+// 3. Logika Kirim PENGIRIMAN
 function kirimPengiriman() {
     let text = `FORM PENGIRIMAN DAN PENARIKAN UNIT\n`;
     text += `*JOB TYPE :* PENGIRIMAN\n\n`;
@@ -540,4 +542,3 @@ function bukaWhatsApp(teksMurni) {
 
 </body>
 </html>
-
