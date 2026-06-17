@@ -69,6 +69,17 @@
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
+            /* Mengatur ikon di atas dan tulisan di bawah */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Ukuran Ikon di dalam Tab */
+        .tab-btn i {
+            font-size: 18px;
         }
 
         .tab-btn.active {
@@ -179,8 +190,11 @@
                 gap: 0;
             }
             .tab-btn {
-                font-size: 11px;
-                padding: 10px 5px;
+                font-size: 10px;
+                padding: 8px 4px;
+            }
+            .tab-btn i {
+                font-size: 16px;
             }
         }
     </style>
@@ -191,9 +205,18 @@
     <h2>Update Job Refurbish</h2>
     
     <div class="menu-tabs">
-        <button class="tab-btn active" onclick="switchForm('perbaikan')">PERBAIKAN UNIT</button>
-        <button class="tab-btn" onclick="switchForm('penarikan')">PENARIKAN UNIT</button>
-        <button class="tab-btn" onclick="switchForm('pengiriman')">PENGIRIMAN UNIT</button>
+        <button class="tab-btn active" onclick="switchForm('perbaikan')">
+            <i class="fa-solid fa-wrench"></i>
+            <span>PERBAIKAN UNIT</span>
+        </button>
+        <button class="tab-btn" onclick="switchForm('penarikan')">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>PENARIKAN UNIT</span>
+        </button>
+        <button class="tab-btn" onclick="switchForm('pengiriman')">
+            <i class="fa-solid fa-truck"></i>
+            <span>PENGIRIMAN UNIT</span>
+        </button>
     </div>
 
     <div id="form-perbaikan" class="form-section active">
