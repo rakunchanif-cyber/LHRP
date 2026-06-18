@@ -217,6 +217,10 @@
             <i class="fa-solid fa-truck"></i>
             <span>PENGIRIMAN UNIT</span>
         </button>
+        <button class="tab-btn" onclick="switchForm('loan')">
+            <i class="fa-solid fa-hand-holding-hand"></i>
+            <span>LOAN PART</span>
+        </button>
     </div>
 
     <div id="form-perbaikan" class="form-section active">
@@ -480,6 +484,113 @@
         </form>
     </div>
 
+    <div id="form-loan" class="form-section">
+        <form id="js-form-loan">
+            <div class="row">
+                <div class="form-group">
+                    <label>Nomer Loan:</label>
+                    <input type="text" id="loan_nomor" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                </div>
+                <div class="form-group">
+                    <label>Nomer To/So/Pr:</label>
+                    <input type="text" id="loan_to_so_pr" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                </div>
+            </div>
+
+            <h3>UNIT YANG DIKANIBAL</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Type Unit:</label>
+                        <input type="text" id="loan_kanibal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="form-group">
+                        <label>Serial Number:</label>
+                        <input type="text" id="loan_kanibal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                </div>
+            </div>
+
+            <h3>UNIT DI INSTAL</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Type Unit:</label>
+                        <input type="text" id="loan_instal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="form-group">
+                        <label>Serial Number:</label>
+                        <input type="text" id="loan_instal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                </div>
+            </div>
+
+            <h3>PART</h3>
+            <div class="section">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Part Name:</label>
+                        <input type="text" id="loan_part_name" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
+                    </div>
+                    <div class="form-group">
+                        <label>Part Number:</label>
+                        <input type="text" id="loan_part_number" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Qty Part:</label>
+                        <input type="text" id="loan_part_qty">
+                    </div>
+                    <div class="form-group">
+                        <label>Kondisi Part:</label>
+                        <select id="loan_kondisi">
+                            <option value="New good">New good</option>
+                            <option value="Good used">Good used</option>
+                            <option value="Normal unit">Normal unit</option>
+                            <option value="Permintaan">Permintaan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Customer:</label>
+                <input type="text" id="loan_customer" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Divisi Peminjam:</label>
+                    <select id="loan_divisi" onchange="toggleDivisiLain()">
+                        <option value="Service">Service</option>
+                        <option value="Rental">Rental</option>
+                        <option value="Lainnya">Divisi Lain...</option>
+                    </select>
+                </div>
+                <div class="form-group" id="group_divisi_lain" style="display: none;">
+                    <label>Isi Divisi Lain:</label>
+                    <input type="text" id="loan_divisi_lain" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Pic Peminjam:</label>
+                    <input type="text" id="loan_pic">
+                </div>
+                <div class="form-group">
+                    <label>Pengambil Part:</label>
+                    <input type="text" id="loan_pengambil">
+                </div>
+            </div>
+
+            <button type="button" class="btn-kirim" onclick="kirimLoan()">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Loan Part
+            </button>
+        </form>
+    </div>
+
 </div>
 
 <script>
@@ -493,6 +604,17 @@ function switchForm(formType) {
     document.getElementById('form-' + formType).classList.add('active');
     if(event && event.currentTarget) {
         event.currentTarget.classList.add('active');
+    }
+}
+
+function toggleDivisiLain() {
+    const divisiSelect = document.getElementById('loan_divisi').value;
+    const groupDivisiLain = document.getElementById('group_divisi_lain');
+    if(divisiSelect === 'Lainnya') {
+        groupDivisiLain.style.display = 'block';
+    } else {
+        groupDivisiLain.style.display = 'none';
+        document.getElementById('loan_divisi_lain').value = '';
     }
 }
 
@@ -564,6 +686,40 @@ function kirimPengiriman() {
     text += `*CHARGER SN :* ${document.getElementById('kirim_charger').value}\n\n`;
     text += `*TROLLY :* ${document.getElementById('kirim_trolly').value}\n\n`;
     text += `*REMARK :* ${document.getElementById('kirim_remark').value}`;
+
+    bukaWhatsApp(text);
+}
+
+// 4. Logika Kirim LOAN PART
+function kirimLoan() {
+    let text = `Update Job Refurbish\n`;
+    text += `*JOB TYPE :* LOAN PART\n\n`;
+    text += `*NOMER LOAN :* ${document.getElementById('loan_nomor').value}\n`;
+    text += `*NOMER TO/SO/PR :* ${document.getElementById('loan_to_so_pr').value}\n\n`;
+    
+    text += `> _*UNIT YANG DIKANIBAL*_\n`;
+    text += `*TYPE UNIT :* ${document.getElementById('loan_kanibal_type').value}\n`;
+    text += `*SERIAL NUMBER :* ${document.getElementById('loan_kanibal_sn').value}\n\n`;
+    
+    text += `> _*UNIT DI INSTAL*_\n`;
+    text += `*TYPE UNIT :* ${document.getElementById('loan_instal_type').value}\n`;
+    text += `*SERIAL NUMBER :* ${document.getElementById('loan_instal_sn').value}\n\n`;
+    
+    text += `> _*PART*_\n`;
+    text += `*PART NAME :* ${document.getElementById('loan_part_name').value}\n`;
+    text += `*PART NUMBER :* ${document.getElementById('loan_part_number').value}\n`;
+    text += `*QTY PART :* ${document.getElementById('loan_part_qty').value}\n`;
+    text += `*KONDISI PART :* ${document.getElementById('loan_kondisi').value}\n\n`;
+    
+    text += `*CUSTOMER :* ${document.getElementById('loan_customer').value}\n`;
+    
+    let divisi = document.getElementById('loan_divisi').value;
+    if(divisi === 'Lainnya') {
+        divisi = document.getElementById('loan_divisi_lain').value;
+    }
+    text += `*DIVISI PEMINJAM :* ${divisi}\n`;
+    text += `*PIC PEMINJAM :* ${document.getElementById('loan_pic').value}\n`;
+    text += `*PENGAMBIL PART :* ${document.getElementById('loan_pengambil').value}`;
 
     bukaWhatsApp(text);
 }
