@@ -60,7 +60,7 @@
             overflow-x: auto;
         }
 
-        /* Tombol Tab Base (Menggunakan warna dasar putih bersih) */
+        /* Tombol Tab Base */
         .tab-btn {
             flex: 1;
             white-space: nowrap;
@@ -93,197 +93,67 @@
            PENGATURAN WARNA UNIK & ANIMASI HIDUP TIAP IKON MENU 
            ==================================================== */
 
-        /* --- 1. TAB PERBAIKAN UNIT (Tema Oranye Mekanik) --- */
         .menu-tabs .tab-btn:nth-child(1) i { color: #e67e22; }
         .menu-tabs .tab-btn:nth-child(1):hover { background-color: #fdf6ee; color: #d35400; border-color: #f39c12; }
-        .menu-tabs .tab-btn:nth-child(1).active {
-            background: linear-gradient(135deg, #f39c12, #d35400);
-            color: white;
-            border-color: #d35400;
-            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.35);
-        }
+        .menu-tabs .tab-btn:nth-child(1).active { background: linear-gradient(135deg, #f39c12, #d35400); color: white; border-color: #d35400; box-shadow: 0 6px 15px rgba(243, 156, 18, 0.35); }
         .menu-tabs .tab-btn:nth-child(1).active i { color: white; }
-        /* Animasi Kunci Inggris Kena Hover/Aktif (Goyang Bergerak) */
-        .menu-tabs .tab-btn:nth-child(1):hover i, 
-        .menu-tabs .tab-btn:nth-child(1).active i {
-            animation: PutarKunci 0.6s ease infinite alternate;
-        }
+        .menu-tabs .tab-btn:nth-child(1):hover i, .menu-tabs .tab-btn:nth-child(1).active i { animation: PutarKunci 0.6s ease infinite alternate; }
 
-        /* --- 2. TAB PENARIKAN UNIT (Tema Biru Logistik) --- */
         .menu-tabs .tab-btn:nth-child(2) i { color: #3498db; }
         .menu-tabs .tab-btn:nth-child(2):hover { background-color: #ebf5fb; color: #2980b9; border-color: #3498db; }
-        .menu-tabs .tab-btn:nth-child(2).active {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            border-color: #2980b9;
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.35);
-        }
+        .menu-tabs .tab-btn:nth-child(2).active { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border-color: #2980b9; box-shadow: 0 6px 15px rgba(52, 152, 219, 0.35); }
         .menu-tabs .tab-btn:nth-child(2).active i { color: white; }
-        /* Animasi Truk Pickup (Efek Maju Mundur & Bergetar Jalan) */
-        .menu-tabs .tab-btn:nth-child(2):hover i, 
-        .menu-tabs .tab-btn:nth-child(2).active i {
-            animation: TrukJalan 0.6s ease infinite;
-        }
+        .menu-tabs .tab-btn:nth-child(2):hover i, .menu-tabs .tab-btn:nth-child(2).active i { animation: TrukJalan 0.6s ease infinite; }
 
-        /* --- 3. TAB PENGIRIMAN UNIT (Tema Hijau Delivery) --- */
         .menu-tabs .tab-btn:nth-child(3) i { color: #2ecc71; }
         .menu-tabs .tab-btn:nth-child(3):hover { background-color: #eafaf1; color: #27ae60; border-color: #2ecc71; }
-        .menu-tabs .tab-btn:nth-child(3).active {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            border-color: #27ae60;
-            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.35);
-        }
+        .menu-tabs .tab-btn:nth-child(3).active { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; border-color: #27ae60; box-shadow: 0 6px 15px rgba(46, 204, 113, 0.35); }
         .menu-tabs .tab-btn:nth-child(3).active i { color: white; }
-        /* Animasi Truk Besar Besar (Efek Jalan Bergetar) */
-        .menu-tabs .tab-btn:nth-child(3):hover i, 
-        .menu-tabs .tab-btn:nth-child(3).active i {
-            animation: TrukJalan 0.6s ease infinite;
-        }
+        .menu-tabs .tab-btn:nth-child(3):hover i, .menu-tabs .tab-btn:nth-child(3).active i { animation: TrukJalan 0.6s ease infinite; }
 
-        /* --- 4. TAB LOAN PART (Tema Ungu Administrasi) --- */
         .menu-tabs .tab-btn:nth-child(4) i { color: #9b59b6; }
         .menu-tabs .tab-btn:nth-child(4):hover { background-color: #f5eef8; color: #8e44ad; border-color: #9b59b6; }
-        .menu-tabs .tab-btn:nth-child(4).active {
-            background: linear-gradient(135deg, #9b59b6, #8e44ad);
-            color: white;
-            border-color: #8e44ad;
-            box-shadow: 0 6px 15px rgba(155, 89, 182, 0.35);
-        }
+        .menu-tabs .tab-btn:nth-child(4).active { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border-color: #8e44ad; box-shadow: 0 6px 15px rgba(155, 89, 182, 0.35); }
         .menu-tabs .tab-btn:nth-child(4).active i { color: white; }
-        /* Animasi Pinjam Tangan (Efek Naik Turun Halus) */
-        .menu-tabs .tab-btn:nth-child(4):hover i, 
-        .menu-tabs .tab-btn:nth-child(4).active i {
-            animation: TanganGoyang 0.7s ease infinite alternate;
-        }
+        .menu-tabs .tab-btn:nth-child(4):hover i, .menu-tabs .tab-btn:nth-child(4).active i { animation: TanganGoyang 0.7s ease infinite alternate; }
 
+        @keyframes PutarKunci { 0% { transform: rotate(-12deg); } 100% { transform: rotate(28deg); } }
+        @keyframes TrukJalan { 0% { transform: translateX(0) translateY(0); } 25% { transform: translateX(2px) translateY(-1px); } 50% { transform: translateX(-1px) translateY(0); } 75% { transform: translateX(1px) translateY(-0.5px); } 100% { transform: translateX(0) translateY(0); } }
+        @keyframes TanganGoyang { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-4px) scale(1.06); } }
+
+        @keyframes formReveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        .form-section { display: none; }
+        .form-section.active { display: block; animation: formReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .section { margin-bottom: 20px; padding: 18px; background: #fdfdfd; border-left: 4px solid #f39c12; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+        .section:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-left-color: #e67e22; background: #ffffff; }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #34495e; font-size: 13px; transition: color 0.3s ease; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 14px; border: 1px solid #d5dbdb; border-radius: 8px; box-sizing: border-box; font-size: 14px; background-color: #fff; transition: all 0.25s ease; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #e67e22; outline: none; background-color: #fffdf9; box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.15); }
+        .form-group:focus-within label { color: #e67e22; }
+
+        .row { display: flex; flex-direction: row; gap: 15px; }
+        .row .form-group { flex: 1; }
+
+        .btn-kirim { background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 15px 20px; font-size: 15px; font-weight: bold; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); margin-top: 20px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-kirim:hover { background: linear-gradient(135deg, #128C7E, #075E54); box-shadow: 0 8px 22px rgba(18, 140, 126, 0.5); transform: translateY(-2px); }
+        .btn-kirim:active { transform: scale(0.98); }
 
         /* ====================================================
-           KEYFRAMES UNTUK MATRIKS ANIMASI 
+           FLOATING ACTION BUTTON (BERLAKU UNTUK SEMUA MENU)
            ==================================================== */
-        @keyframes PutarKunci {
-            0% { transform: rotate(-12deg); }
-            100% { transform: rotate(28deg); }
-        }
-        @keyframes TrukJalan {
-            0% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(2px) translateY(-1px); }
-            50% { transform: translateX(-1px) translateY(0); }
-            75% { transform: translateX(1px) translateY(-0.5px); }
-            100% { transform: translateX(0) translateY(0); }
-        }
-        @keyframes TanganGoyang {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-4px) scale(1.06); }
-        }
+        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 15px; }
+        .fab-main { width: 55px; height: 55px; background: linear-gradient(135deg, #f39c12, #d35400); color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; align-items: center; justify-content: center; }
+        .fab-main:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(211, 84, 0, 0.6); }
+        .fab-main.active { transform: rotate(45deg); background: linear-gradient(135deg, #e74c3c, #c0392b); box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4); }
+        .fab-menu { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .fab-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .fab-item { background: white; color: #34495e; border: 2px solid #f39c12; padding: 10px 18px; border-radius: 25px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: all 0.3s ease; white-space: nowrap; }
+        .fab-item:hover { background: #f39c12; color: white; transform: translateX(-5px); }
 
-        /* Kebocoran Animasi saat Form Switch */
-        @keyframes formReveal {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .form-section {
-            display: none;
-        }
-
-        .form-section.active {
-            display: block;
-            animation: formReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Form Sektor */
-        .section {
-            margin-bottom: 20px;
-            padding: 18px;
-            background: #fdfdfd;
-            border-left: 4px solid #f39c12;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border-left-color: #e67e22;
-            background: #ffffff;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #34495e;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1px solid #d5dbdb;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 14px;
-            background-color: #fff;
-            transition: all 0.25s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: #e67e22;
-            outline: none;
-            background-color: #fffdf9;
-            box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.15);
-        }
-
-        .form-group:focus-within label {
-            color: #e67e22;
-        }
-
-        .row {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-        }
-
-        .row .form-group {
-            flex: 1;
-        }
-
-        .btn-kirim {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-kirim:hover {
-            background: linear-gradient(135deg, #128C7E, #075E54);
-            box-shadow: 0 8px 22px rgba(18, 140, 126, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .btn-kirim:active {
-            transform: scale(0.98);
-        }
-
-        /* RESPONSIVE BREAKPOINT UNTUK HP */
         @media screen and (max-width: 600px) {
             body { padding: 5px; }
             .container { margin: 5px auto; padding: 15px; border-radius: 12px; }
@@ -301,149 +171,123 @@
     
     <div class="menu-tabs">
         <button class="tab-btn active" onclick="switchForm('perbaikan')">
-            <i class="fa-solid fa-wrench"></i>
-            <span>PERBAIKAN UNIT</span>
+            <i class="fa-solid fa-wrench"></i><span>PERBAIKAN UNIT</span>
         </button>
         <button class="tab-btn" onclick="switchForm('penarikan')">
-            <i class="fa-solid fa-truck-pickup"></i>
-            <span>PENARIKAN UNIT</span>
+            <i class="fa-solid fa-truck-pickup"></i><span>PENARIKAN UNIT</span>
         </button>
         <button class="tab-btn" onclick="switchForm('pengiriman')">
-            <i class="fa-solid fa-truck"></i>
-            <span>PENGIRIMAN UNIT</span>
+            <i class="fa-solid fa-truck"></i><span>PENGIRIMAN UNIT</span>
         </button>
         <button class="tab-btn" onclick="switchForm('loan')">
-            <i class="fa-solid fa-hand-holding-hand"></i>
-            <span>LOAN PART</span>
+            <i class="fa-solid fa-hand-holding-hand"></i><span>LOAN PART</span>
         </button>
     </div>
 
-    <!-- SISA BLOK HTML FORM PERBAIKAN SAMPAI JAVASCRIPT DI BAWAH TETAP SAMA PERSIS -->
+    <!-- ==================== FORM PERBAIKAN ==================== -->
     <div id="form-perbaikan" class="form-section active">
         <form id="js-form-perbaikan">
+            <div class="row">
+                <div class="form-group">
+                    <label>Cabang:</label>
+                    <select id="p_cabang" onchange="toggleCabang('p')">
+                        <option value="Lemah abang">Lemah abang</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Cab lain">Cab lain...</option>
+                    </select>
+                </div>
+                <div class="form-group" id="group_p_cabang_lain" style="display: none;">
+                    <label>Tulis Cabang Lain:</label>
+                    <input type="text" id="p_cabang_lain" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
+                </div>
+            </div>
+
             <div class="form-group">
                 <label>Tanggal (DATE):</label>
                 <input type="date" id="p_date_main">
             </div>
 
-            <h3>PERBAIKAN UNIT</h3>
+            <h3>DETAIL UNIT</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Unit Type:</label>
-                        <input type="text" id="p_unit_type">
-                    </div>
-                    <div class="form-group">
-                        <label>Serial Number:</label>
-                        <input type="text" id="p_sn">
-                    </div>
+                    <div class="form-group"><label>Unit Type:</label><input type="text" id="p_unit_type"></div>
+                    <div class="form-group"><label>Serial Number:</label><input type="text" id="p_sn"></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Year:</label>
-                        <input type="text" id="p_year" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>Hour Meter:</label>
-                        <input type="text" id="p_hm">
-                    </div>
+                    <div class="form-group"><label>Year:</label><input type="text" id="p_year" value=""></div>
+                    <div class="form-group"><label>Hour Meter:</label><input type="text" id="p_hm"></div>
                 </div>
             </div>
 
             <h3>JOB DESCRIPTIONS</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Job Type:</label>
-                        <input type="text" id="p_job_type">
-                    </div>
-                    <div class="form-group">
-                        <label>Problem Date:</label>
-                        <input type="date" id="p_prob_date">
-                    </div>
+                    <div class="form-group"><label>Job Type:</label><input type="text" id="p_job_type"></div>
+                    <div class="form-group"><label>Problem Date:</label><input type="date" id="p_prob_date"></div>
                 </div>
-                <div class="form-group">
-                    <label>Problem:</label>
-                    <textarea id="p_problem" rows="2"></textarea>
-                </div>
+                <div class="form-group"><label>Problem:</label><textarea id="p_problem" rows="2"></textarea></div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Status Rfu %:</label>
-                        <input type="text" id="p_status" value="  %">
-                    </div>
-                    <div class="form-group">
-                        <label>RFU Date:</label>
-                        <input type="date" id="p_rfu_date">
-                    </div>
+                    <div class="form-group"><label>Status Rfu %:</label><input type="text" id="p_status" value="  %"></div>
+                    <div class="form-group"><label>RFU Date:</label><input type="date" id="p_rfu_date"></div>
                 </div>
-                <div class="form-group">
-                    <label>Action:</label>
-                    <textarea id="p_action" rows="2"></textarea>
-                </div>
+                <div class="form-group"><label>Action:</label><textarea id="p_action" rows="2"></textarea></div>
             </div>
 
             <h3>RECOMMENDATIONS</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Part Number:</label>
-                        <input type="text" id="p_p_num1">
-                    </div>
-                    <div class="form-group">
-                        <label>Part Name:</label>
-                        <input type="text" id="p_p_name1">
-                    </div>
-                    <div class="form-group">
-                        <label>Qty:</label>
-                        <input type="text" id="p_qty1">
-                    </div>
+                    <div class="form-group"><label>Part Number:</label><input type="text" id="p_p_num1"></div>
+                    <div class="form-group"><label>Part Name:</label><input type="text" id="p_p_name1"></div>
+                    <div class="form-group"><label>Qty:</label><input type="text" id="p_qty1"></div>
                 </div>
-                <div class="form-group">
-                    <label>Remarks:</label>
-                    <input type="text" id="p_rem1" value="">
-                </div>
+                <div class="form-group"><label>Remarks:</label><input type="text" id="p_rem1" value=""></div>
             </div>
 
             <h3>INSTALL PART</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Part Number:</label>
-                        <input type="text" id="p_inst_num" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>Part Name:</label>
-                        <input type="text" id="p_inst_name" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>Qty:</label>
-                        <input type="text" id="p_inst_qty" value="">
-                    </div>
+                    <div class="form-group"><label>Part Number:</label><input type="text" id="p_inst_num" value=""></div>
+                    <div class="form-group"><label>Part Name:</label><input type="text" id="p_inst_name" value=""></div>
+                    <div class="form-group"><label>Qty:</label><input type="text" id="p_inst_qty" value=""></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>No Job:</label>
-                        <input type="text" id="p_no_job" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>No PR:</label>
-                        <input type="text" id="p_no_pr" value="">
-                    </div>
+                    <div class="form-group"><label>No Job:</label><input type="text" id="p_no_job" value=""></div>
+                    <div class="form-group"><label>No PR:</label><input type="text" id="p_no_pr" value=""></div>
                 </div>
-                <div class="form-group">
-                    <label>Remarks:</label>
-                    <input type="text" id="p_inst_rem" value="">
-                </div>
+                <div class="form-group"><label>Remarks:</label><input type="text" id="p_inst_rem" value=""></div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPerbaikan()">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Perbaikan
-            </button>
+            <button type="button" class="btn-kirim" onclick="kirimPerbaikan()"><i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Perbaikan</button>
+
+            <!-- FLOATING BUTTON MELAYANG PERBAIKAN -->
+            <div class="fab-container">
+                <button type="button" id="fab-main-btn-p" class="fab-main" onclick="toggleFabMenu('p')"><i class="fa-solid fa-plus"></i></button>
+                <div class="fab-menu" id="fab-menu-p">
+                    <button type="button" class="fab-item" onclick="addRecommendation()">RECOMMENDATIONS</button>
+                    <button type="button" class="fab-item" onclick="addInstallPart()">INSTAL PART</button>
+                </div>
+            </div>
         </form>
     </div>
 
+    <!-- ==================== FORM PENARIKAN ==================== -->
     <div id="form-penarikan" class="form-section">
         <form id="js-form-penarikan">
+            <div class="row">
+                <div class="form-group">
+                    <label>Cabang:</label>
+                    <select id="tarik_cabang" onchange="toggleCabang('tarik')">
+                        <option value="Lemah abang">Lemah abang</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Cab lain">Cab lain...</option>
+                    </select>
+                </div>
+                <div class="form-group" id="group_tarik_cabang_lain" style="display: none;">
+                    <label>Tulis Cabang Lain:</label>
+                    <input type="text" id="tarik_cabang_lain" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
+                </div>
+            </div>
+
             <div class="form-group">
                 <label>Customer:</label>
                 <input type="text" id="tarik_customer">
@@ -452,192 +296,148 @@
             <h3>Type Job (PENARIKAN)</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Type Unit:</label>
-                        <input type="text" id="tarik_type">
-                    </div>
-                    <div class="form-group">
-                        <label>SN Unit:</label>
-                        <input type="text" id="tarik_sn">
-                    </div>
+                    <div class="form-group"><label>Type Unit:</label><input type="text" id="tarik_type"></div>
+                    <div class="form-group"><label>SN Unit:</label><input type="text" id="tarik_sn"></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Year:</label>
-                        <input type="text" id="tarik_year">
-                    </div>
-                    <div class="form-group">
-                        <label>HM:</label>
-                        <input type="text" id="tarik_hm">
-                    </div>
+                    <div class="form-group"><label>Year:</label><input type="text" id="tarik_year"></div>
+                    <div class="form-group"><label>HM:</label><input type="text" id="tarik_hm"></div>
                 </div>
             </div>
 
             <h3>SPESIFIKASI TAMBAHAN</h3>
             <div class="section">
-                <div class="form-group">
-                    <label>Battery Dalam unit:</label>
-                    <input type="text" id="tarik_battery">
+                <div class="form-group"><label>Battery Dalam unit:</label><input type="text" id="tarik_battery"></div>
+                <div class="row">
+                    <div class="form-group"><label>Battery Spare 1:</label><input type="text" id="tarik_spare1" value=""></div>
+                    <div class="form-group"><label>Battery Spare 2:</label><input type="text" id="tarik_spare2" value=""></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Battery Spare 1:</label>
-                        <input type="text" id="tarik_spare1" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>Battery Spare 2:</label>
-                        <input type="text" id="tarik_spare2" value="">
-                    </div>
+                    <div class="form-group"><label>Charger SN:</label><input type="text" id="tarik_charger"></div>
+                    <div class="form-group"><label>Trolly:</label><input type="text" id="tarik_trolly"></div>
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label>Charger SN:</label>
-                        <input type="text" id="tarik_charger">
-                    </div>
-                    <div class="form-group">
-                        <label>Trolly:</label>
-                        <input type="text" id="tarik_trolly">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Remark:</label>
-                    <textarea id="tarik_remark" rows="2"></textarea>
-                </div>
+                <div class="form-group"><label>Remark:</label><textarea id="tarik_remark" rows="2"></textarea></div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPenarikan()">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Penarikan
-            </button>
+            <button type="button" class="btn-kirim" onclick="kirimPenarikan()"><i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Penarikan</button>
+
+            <!-- FLOATING BUTTON MELAYANG PENARIKAN -->
+            <div class="fab-container">
+                <button type="button" id="fab-main-btn-tarik" class="fab-main" onclick="toggleFabMenu('tarik')"><i class="fa-solid fa-plus"></i></button>
+                <div class="fab-menu" id="fab-menu-tarik">
+                    <button type="button" class="fab-item" onclick="addTarikTypeJob()">TYPE JOB</button>
+                    <button type="button" class="fab-item" onclick="addTarikSpesifikasi()">SPESIFIKASI TAMBAHAN</button>
+                </div>
+            </div>
         </form>
     </div>
 
+    <!-- ==================== FORM PENGIRIMAN ==================== -->
     <div id="form-pengiriman" class="form-section">
         <form id="js-form-pengiriman">
-            <div class="form-group">
-                <label>Customer:</label>
-                <input type="text" id="kirim_customer">
+            <div class="row">
+                <div class="form-group">
+                    <label>Cabang:</label>
+                    <select id="kirim_cabang" onchange="toggleCabang('kirim')">
+                        <option value="Lemah abang">Lemah abang</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Cab lain">Cab lain...</option>
+                    </select>
+                </div>
+                <div class="form-group" id="group_kirim_cabang_lain" style="display: none;">
+                    <label>Tulis Cabang Lain:</label>
+                    <input type="text" id="kirim_cabang_lain" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
+                </div>
             </div>
+
+            <div class="form-group"><label>Customer:</label><input type="text" id="kirim_customer"></div>
 
             <h3>Type Job (PENGIRIMAN)</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Type Unit:</label>
-                        <input type="text" id="kirim_type">
-                    </div>
-                    <div class="form-group">
-                        <label>SN Unit:</label>
-                        <input type="text" id="kirim_sn">
-                    </div>
+                    <div class="form-group"><label>Type Unit:</label><input type="text" id="kirim_type"></div>
+                    <div class="form-group"><label>SN Unit:</label><input type="text" id="kirim_sn"></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Year:</label>
-                        <input type="text" id="kirim_year">
-                    </div>
-                    <div class="form-group">
-                        <label>HM:</label>
-                        <input type="text" id="kirim_hm">
-                    </div>
+                    <div class="form-group"><label>Year:</label><input type="text" id="kirim_year"></div>
+                    <div class="form-group"><label>HM:</label><input type="text" id="kirim_hm"></div>
                 </div>
             </div>
 
             <h3>SPESIFIKASI TAMBAHAN</h3>
             <div class="section">
-                <div class="form-group">
-                    <label>Battery Dalam unit:</label>
-                    <input type="text" id="kirim_battery">
+                <div class="form-group"><label>Battery Dalam unit:</label><input type="text" id="kirim_battery"></div>
+                <div class="row">
+                    <div class="form-group"><label>Battery Spare 1:</label><input type="text" id="kirim_spare1" value=""></div>
+                    <div class="form-group"><label>Battery Spare 2:</label><input type="text" id="kirim_spare2" value=""></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Battery Spare 1:</label>
-                        <input type="text" id="kirim_spare1" value="">
-                    </div>
-                    <div class="form-group">
-                        <label>Battery Spare 2:</label>
-                        <input type="text" id="kirim_spare2" value="">
-                    </div>
+                    <div class="form-group"><label>Charger SN:</label><input type="text" id="kirim_charger"></div>
+                    <div class="form-group"><label>Trolly:</label><input type="text" id="kirim_trolly"></div>
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label>Charger SN:</label>
-                        <input type="text" id="kirim_charger">
-                    </div>
-                    <div class="form-group">
-                        <label>Trolly:</label>
-                        <input type="text" id="kirim_trolly">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Remark:</label>
-                    <textarea id="kirim_remark" rows="2"></textarea>
-                </div>
+                <div class="form-group"><label>Remark:</label><textarea id="kirim_remark" rows="2"></textarea></div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimPengiriman()">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Pengiriman
-            </button>
+            <button type="button" class="btn-kirim" onclick="kirimPengiriman()"><i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Pengiriman</button>
+
+            <!-- FLOATING BUTTON MELAYANG PENGIRIMAN -->
+            <div class="fab-container">
+                <button type="button" id="fab-main-btn-kirim" class="fab-main" onclick="toggleFabMenu('kirim')"><i class="fa-solid fa-plus"></i></button>
+                <div class="fab-menu" id="fab-menu-kirim">
+                    <button type="button" class="fab-item" onclick="addKirimTypeJob()">TYPE JOB</button>
+                    <button type="button" class="fab-item" onclick="addKirimSpesifikasi()">SPESIFIKASI TAMBAHAN</button>
+                </div>
+            </div>
         </form>
     </div>
 
+    <!-- ==================== FORM LOAN PART ==================== -->
     <div id="form-loan" class="form-section">
         <form id="js-form-loan">
             <div class="row">
                 <div class="form-group">
-                    <label>Nomer Loan:</label>
-                    <input type="text" id="loan_nomor" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                    <label>Cabang:</label>
+                    <select id="loan_cabang" onchange="toggleCabang('loan')">
+                        <option value="Lemah abang">Lemah abang</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Cab lain">Cab lain...</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label>Nomer To/So/Pr:</label>
-                    <input type="text" id="loan_to_so_pr" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+                <div class="form-group" id="group_loan_cabang_lain" style="display: none;">
+                    <label>Tulis Cabang Lain:</label>
+                    <input type="text" id="loan_cabang_lain" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group"><label>Nomer Loan:</label><input type="text" id="loan_nomor" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
+                <div class="form-group"><label>Nomer To/So/Pr:</label><input type="text" id="loan_to_so_pr" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
             </div>
 
             <h3>UNIT YANG DIKANIBAL</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Type Unit:</label>
-                        <input type="text" id="loan_kanibal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
-                    </div>
-                    <div class="form-group">
-                        <label>Serial Number:</label>
-                        <input type="text" id="loan_kanibal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
-                    </div>
+                    <div class="form-group"><label>Type Unit:</label><input type="text" id="loan_kanibal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
+                    <div class="form-group"><label>Serial Number:</label><input type="text" id="loan_kanibal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
                 </div>
             </div>
 
             <h3>UNIT DI INSTAL</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Type Unit:</label>
-                        <input type="text" id="loan_instal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
-                    </div>
-                    <div class="form-group">
-                        <label>Serial Number:</label>
-                        <input type="text" id="loan_instal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
-                    </div>
+                    <div class="form-group"><label>Type Unit:</label><input type="text" id="loan_instal_type" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
+                    <div class="form-group"><label>Serial Number:</label><input type="text" id="loan_instal_sn" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
                 </div>
             </div>
 
             <h3>PART</h3>
             <div class="section">
                 <div class="row">
-                    <div class="form-group">
-                        <label>Part Name:</label>
-                        <input type="text" id="loan_part_name" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)">
-                    </div>
-                    <div class="form-group">
-                        <label>Part Number:</label>
-                        <input type="text" id="loan_part_number" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
-                    </div>
+                    <div class="form-group"><label>Part Name:</label><input type="text" id="loan_part_name" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)"></div>
+                    <div class="form-group"><label>Part Number:</label><input type="text" id="loan_part_number" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <label>Qty Part:</label>
-                        <input type="text" id="loan_part_qty">
-                    </div>
+                    <div class="form-group"><label>Qty Part:</label><input type="text" id="loan_part_qty"></div>
                     <div class="form-group">
                         <label>Kondisi Part:</label>
                         <select id="loan_kondisi">
@@ -650,9 +450,9 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Customer:</label>
-                <input type="text" id="loan_customer" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
+            <!-- ANCHOR UNTUK LOAN PART BARU DI SINI -->
+            <div class="form-group" id="anchor-loan-customer">
+                <label>Customer:</label><input type="text" id="loan_customer" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()">
             </div>
 
             <div class="row">
@@ -671,22 +471,21 @@
             </div>
 
             <div class="row">
-                <div class="form-group">
-                    <label>Pic Peminjam:</label>
-                    <input type="text" id="loan_pic">
-                </div>
-                <div class="form-group">
-                    <label>Pengambil Part:</label>
-                    <input type="text" id="loan_pengambil">
-                </div>
+                <div class="form-group"><label>Pic Peminjam:</label><input type="text" id="loan_pic"></div>
+                <div class="form-group"><label>Pengambil Part:</label><input type="text" id="loan_pengambil"></div>
             </div>
 
-            <button type="button" class="btn-kirim" onclick="kirimLoan()">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Loan Part
-            </button>
+            <button type="button" class="btn-kirim" onclick="kirimLoan()"><i class="fa-brands fa-whatsapp fa-lg"></i> Kirim Laporan Loan Part</button>
+
+            <!-- FLOATING BUTTON MELAYANG LOAN -->
+            <div class="fab-container">
+                <button type="button" id="fab-main-btn-loan" class="fab-main" onclick="toggleFabMenu('loan')"><i class="fa-solid fa-plus"></i></button>
+                <div class="fab-menu" id="fab-menu-loan">
+                    <button type="button" class="fab-item" onclick="addLoanPart()">TAMBAH PART</button>
+                </div>
+            </div>
         </form>
     </div>
-
 </div>
 
 <script>
@@ -706,16 +505,117 @@ function switchForm(formType) {
 function toggleDivisiLain() {
     const divisiSelect = document.getElementById('loan_divisi').value;
     const groupDivisiLain = document.getElementById('group_divisi_lain');
-    if(divisiSelect === 'Lainnya') {
-        groupDivisiLain.style.display = 'block';
-    } else {
-        groupDivisiLain.style.display = 'none';
-        document.getElementById('loan_divisi_lain').value = '';
-    }
+    if(divisiSelect === 'Lainnya') { groupDivisiLain.style.display = 'block'; } 
+    else { groupDivisiLain.style.display = 'none'; document.getElementById('loan_divisi_lain').value = ''; }
 }
 
+function toggleCabang(prefix) {
+    const cabangSelect = document.getElementById(prefix + '_cabang').value;
+    const groupCabangLain = document.getElementById('group_' + prefix + '_cabang_lain');
+    if(cabangSelect === 'Cab lain') { groupCabangLain.style.display = 'block'; } 
+    else { groupCabangLain.style.display = 'none'; document.getElementById(prefix + '_cabang_lain').value = ''; }
+}
+
+function getCabangValue(prefix) {
+    let cabang = document.getElementById(prefix + '_cabang').value;
+    if(cabang === 'Cab lain') { cabang = document.getElementById(prefix + '_cabang_lain').value; }
+    return cabang;
+}
+
+function bukaWhatsApp(teksMurni) {
+    const urlEncodedText = encodeURIComponent(teksMurni);
+    const url = `https://api.whatsapp.com/send?text=${urlEncodedText}`;
+    window.open(url, '_blank');
+}
+
+/* ====================================================
+   LOGIKA FLOATING MENU & NAMBAH FORM
+   ==================================================== */
+function toggleFabMenu(prefix) {
+    const menu = document.getElementById('fab-menu-' + prefix);
+    const btn = document.getElementById('fab-main-btn-' + prefix);
+    menu.classList.toggle('show');
+    btn.classList.toggle('active');
+}
+
+// ---- VARIABEL COUNT TIAP MENU ----
+let recCount = 1;
+let instCount = 1;
+
+let tarikTypeCount = 1;
+let tarikSpesCount = 1;
+
+let kirimTypeCount = 1;
+let kirimSpesCount = 1;
+
+let loanPartCount = 1;
+
+// ---- PERBAIKAN UNIT ADD FORM ----
+function addRecommendation() {
+    recCount++;
+    const html = `<div class="section"><div class="row"><div class="form-group"><label>Part Number:</label><input type="text" id="p_p_num${recCount}"></div><div class="form-group"><label>Part Name:</label><input type="text" id="p_p_name${recCount}"></div><div class="form-group"><label>Qty:</label><input type="text" id="p_qty${recCount}"></div></div><div class="form-group"><label>Remarks:</label><input type="text" id="p_rem${recCount}" value=""></div></div>`;
+    const h3Install = Array.from(document.querySelectorAll('#form-perbaikan h3')).find(el => el.textContent === 'INSTALL PART');
+    h3Install.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('p'); 
+}
+
+function addInstallPart() {
+    instCount++;
+    const html = `<div class="section"><div class="row"><div class="form-group"><label>Part Number:</label><input type="text" id="p_inst_num${instCount}" value=""></div><div class="form-group"><label>Part Name:</label><input type="text" id="p_inst_name${instCount}" value=""></div><div class="form-group"><label>Qty:</label><input type="text" id="p_inst_qty${instCount}" value=""></div></div><div class="row"><div class="form-group"><label>No Job:</label><input type="text" id="p_no_job${instCount}" value=""></div><div class="form-group"><label>No PR:</label><input type="text" id="p_no_pr${instCount}" value=""></div></div><div class="form-group"><label>Remarks:</label><input type="text" id="p_inst_rem${instCount}" value=""></div></div>`;
+    const btnSubmit = document.querySelector('#js-form-perbaikan .btn-kirim');
+    btnSubmit.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('p'); 
+}
+
+// ---- PENARIKAN UNIT ADD FORM ----
+function addTarikTypeJob() {
+    tarikTypeCount++;
+    const html = `<div class="section"><div class="row"><div class="form-group"><label>Type Unit:</label><input type="text" id="tarik_type${tarikTypeCount}"></div><div class="form-group"><label>SN Unit:</label><input type="text" id="tarik_sn${tarikTypeCount}"></div></div><div class="row"><div class="form-group"><label>Year:</label><input type="text" id="tarik_year${tarikTypeCount}"></div><div class="form-group"><label>HM:</label><input type="text" id="tarik_hm${tarikTypeCount}"></div></div></div>`;
+    const h3Spes = Array.from(document.querySelectorAll('#form-penarikan h3')).find(el => el.textContent === 'SPESIFIKASI TAMBAHAN');
+    h3Spes.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('tarik');
+}
+
+function addTarikSpesifikasi() {
+    tarikSpesCount++;
+    const html = `<div class="section"><div class="form-group"><label>Battery Dalam unit:</label><input type="text" id="tarik_battery${tarikSpesCount}"></div><div class="row"><div class="form-group"><label>Battery Spare 1:</label><input type="text" id="tarik_spare1${tarikSpesCount}" value=""></div><div class="form-group"><label>Battery Spare 2:</label><input type="text" id="tarik_spare2${tarikSpesCount}" value=""></div></div><div class="row"><div class="form-group"><label>Charger SN:</label><input type="text" id="tarik_charger${tarikSpesCount}"></div><div class="form-group"><label>Trolly:</label><input type="text" id="tarik_trolly${tarikSpesCount}"></div></div><div class="form-group"><label>Remark:</label><textarea id="tarik_remark${tarikSpesCount}" rows="2"></textarea></div></div>`;
+    const btnSubmit = document.querySelector('#js-form-penarikan .btn-kirim');
+    btnSubmit.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('tarik');
+}
+
+// ---- PENGIRIMAN UNIT ADD FORM ----
+function addKirimTypeJob() {
+    kirimTypeCount++;
+    const html = `<div class="section"><div class="row"><div class="form-group"><label>Type Unit:</label><input type="text" id="kirim_type${kirimTypeCount}"></div><div class="form-group"><label>SN Unit:</label><input type="text" id="kirim_sn${kirimTypeCount}"></div></div><div class="row"><div class="form-group"><label>Year:</label><input type="text" id="kirim_year${kirimTypeCount}"></div><div class="form-group"><label>HM:</label><input type="text" id="kirim_hm${kirimTypeCount}"></div></div></div>`;
+    const h3Spes = Array.from(document.querySelectorAll('#form-pengiriman h3')).find(el => el.textContent === 'SPESIFIKASI TAMBAHAN');
+    h3Spes.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('kirim');
+}
+
+function addKirimSpesifikasi() {
+    kirimSpesCount++;
+    const html = `<div class="section"><div class="form-group"><label>Battery Dalam unit:</label><input type="text" id="kirim_battery${kirimSpesCount}"></div><div class="row"><div class="form-group"><label>Battery Spare 1:</label><input type="text" id="kirim_spare1${kirimSpesCount}" value=""></div><div class="form-group"><label>Battery Spare 2:</label><input type="text" id="kirim_spare2${kirimSpesCount}" value=""></div></div><div class="row"><div class="form-group"><label>Charger SN:</label><input type="text" id="kirim_charger${kirimSpesCount}"></div><div class="form-group"><label>Trolly:</label><input type="text" id="kirim_trolly${kirimSpesCount}"></div></div><div class="form-group"><label>Remark:</label><textarea id="kirim_remark${kirimSpesCount}" rows="2"></textarea></div></div>`;
+    const btnSubmit = document.querySelector('#js-form-pengiriman .btn-kirim');
+    btnSubmit.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('kirim');
+}
+
+// ---- LOAN PART ADD FORM ----
+function addLoanPart() {
+    loanPartCount++;
+    const html = `<div class="section"><div class="row"><div class="form-group"><label>Part Name:</label><input type="text" id="loan_part_name${loanPartCount}" style="text-transform: capitalize;" oninput="this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1)"></div><div class="form-group"><label>Part Number:</label><input type="text" id="loan_part_number${loanPartCount}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"></div></div><div class="row"><div class="form-group"><label>Qty Part:</label><input type="text" id="loan_part_qty${loanPartCount}"></div><div class="form-group"><label>Kondisi Part:</label><select id="loan_kondisi${loanPartCount}"><option value="New good">New good</option><option value="Good used">Good used</option><option value="Normal unit">Normal unit</option><option value="Permintaan">Permintaan</option></select></div></div></div>`;
+    const anchorCust = document.getElementById('anchor-loan-customer');
+    anchorCust.insertAdjacentHTML('beforebegin', html);
+    toggleFabMenu('loan');
+}
+
+/* ====================================================
+   FUNGSI KIRIM KE WA YANG SUDAH DINAMIS
+   ==================================================== */
 function kirimPerbaikan() {
     let text = `*UPDATE JOB REFURBISH* _\n`;
+    text += `*CABANG :* ${getCabangValue('p')}\n`; 
     text += `*DATE :* ${document.getElementById('p_date_main').value}\n\n`;
     text += `> _*DETAIL UNIT*_\n`;
     text += `*UNIT TYPE :* ${document.getElementById('p_unit_type').value}\n`;
@@ -729,18 +629,38 @@ function kirimPerbaikan() {
     text += `*STATUS :* ${document.getElementById('p_status').value}\n`;
     text += `*RFU DATE :* ${document.getElementById('p_rfu_date').value || '-'}\n`;
     text += `*ACTION :* ${document.getElementById('p_action').value}\n\n`;
+
     text += `> _*RECOMMENDATIONS*_\n`;
-    text += `*PART NUMBER :* ${document.getElementById('p_p_num1').value}\n`;
-    text += `*PART NAME :* ${document.getElementById('p_p_name1').value}\n`;
-    text += `*QTY :* ${document.getElementById('p_qty1').value}\n`;
-    text += `*REMARKS :* ${document.getElementById('p_rem1').value}\n\n`;
+    for(let i = 1; i <= recCount; i++) {
+        if(document.getElementById('p_p_num' + i)) {
+            if(i > 1) text += `\n`; 
+            text += `*PART NUMBER :* ${document.getElementById('p_p_num' + i).value}\n`;
+            text += `*PART NAME :* ${document.getElementById('p_p_name' + i).value}\n`;
+            text += `*QTY :* ${document.getElementById('p_qty' + i).value}\n`;
+            text += `*REMARKS :* ${document.getElementById('p_rem' + i).value}\n`;
+        }
+    }
+    text += `\n`;
+
     text += `> _*INSTALL PART*_\n`;
-    text += `*PART NUMBER :* ${document.getElementById('p_inst_num').value}\n`;
-    text += `*PART NAME :* ${document.getElementById('p_inst_name').value}\n`;
-    text += `*QTY :* ${document.getElementById('p_inst_qty').value}\n`;
-    text += `*NO JOB :* ${document.getElementById('p_no_job').value}\n`;
-    text += `*NO PR :* ${document.getElementById('p_no_pr').value}\n`;
-    text += `*REMARKS :* ${document.getElementById('p_inst_rem').value}`;
+    for(let i = 1; i <= instCount; i++) {
+        let numId = i === 1 ? 'p_inst_num' : 'p_inst_num' + i;
+        let nameId = i === 1 ? 'p_inst_name' : 'p_inst_name' + i;
+        let qtyId = i === 1 ? 'p_inst_qty' : 'p_inst_qty' + i;
+        let jobId = i === 1 ? 'p_no_job' : 'p_no_job' + i;
+        let prId = i === 1 ? 'p_no_pr' : 'p_no_pr' + i;
+        let remId = i === 1 ? 'p_inst_rem' : 'p_inst_rem' + i;
+
+        if(document.getElementById(numId)) {
+            if(i > 1) text += `\n`; 
+            text += `*PART NUMBER :* ${document.getElementById(numId).value}\n`;
+            text += `*PART NAME :* ${document.getElementById(nameId).value}\n`;
+            text += `*QTY :* ${document.getElementById(qtyId).value}\n`;
+            text += `*NO JOB :* ${document.getElementById(jobId).value}\n`;
+            text += `*NO PR :* ${document.getElementById(prId).value}\n`;
+            text += `*REMARKS :* ${document.getElementById(remId).value}` + (i === instCount ? '' : '\n');
+        }
+    }
 
     bukaWhatsApp(text);
 }
@@ -748,18 +668,44 @@ function kirimPerbaikan() {
 function kirimPenarikan() {
     let text = `Update Job Refurbish\n`;
     text += `*JOB TYPE :* PENARIKAN\n\n`;
+    text += `*CABANG :* ${getCabangValue('tarik')}\n`; 
     text += `*CUSTOMER :* ${document.getElementById('tarik_customer').value}\n\n`;
+    
     text += `> _*DETAIL UNIT*_\n`;
-    text += `*TYPE UNIT :* ${document.getElementById('tarik_type').value}\n`;
-    text += `*SN UNIT :* ${document.getElementById('tarik_sn').value}\n`;
-    text += `*YEAR :* ${document.getElementById('tarik_year').value}\n`;
-    text += `*HM :* ${document.getElementById('tarik_hm').value}\n\n`;
-    text += `*BATTERY SN :* ${document.getElementById('tarik_battery').value}\n`;
-    text += `*BATTERY SPARE 1 :* ${document.getElementById('tarik_spare1').value}\n`;
-    text += `*BATTERY SPARE 2 :* ${document.getElementById('tarik_spare2').value}\n\n`;
-    text += `*CHARGER SN :* ${document.getElementById('tarik_charger').value}\n\n`;
-    text += `*TROLLY :* ${document.getElementById('tarik_trolly').value}\n\n`;
-    text += `*REMARK :* ${document.getElementById('tarik_remark').value}`;
+    for(let i = 1; i <= tarikTypeCount; i++) {
+        let typeId = i === 1 ? 'tarik_type' : 'tarik_type' + i;
+        let snId = i === 1 ? 'tarik_sn' : 'tarik_sn' + i;
+        let yearId = i === 1 ? 'tarik_year' : 'tarik_year' + i;
+        let hmId = i === 1 ? 'tarik_hm' : 'tarik_hm' + i;
+
+        if(document.getElementById(typeId)) {
+            if(i > 1) text += `\n`;
+            text += `*TYPE UNIT :* ${document.getElementById(typeId).value}\n`;
+            text += `*SN UNIT :* ${document.getElementById(snId).value}\n`;
+            text += `*YEAR :* ${document.getElementById(yearId).value}\n`;
+            text += `*HM :* ${document.getElementById(hmId).value}\n`;
+        }
+    }
+
+    text += `\n> _*SPESIFIKASI TAMBAHAN*_\n`;
+    for(let i = 1; i <= tarikSpesCount; i++) {
+        let batId = i === 1 ? 'tarik_battery' : 'tarik_battery' + i;
+        let sp1Id = i === 1 ? 'tarik_spare1' : 'tarik_spare1' + i;
+        let sp2Id = i === 1 ? 'tarik_spare2' : 'tarik_spare2' + i;
+        let chgId = i === 1 ? 'tarik_charger' : 'tarik_charger' + i;
+        let trlId = i === 1 ? 'tarik_trolly' : 'tarik_trolly' + i;
+        let remId = i === 1 ? 'tarik_remark' : 'tarik_remark' + i;
+
+        if(document.getElementById(batId)) {
+            if(i > 1) text += `\n`;
+            text += `*BATTERY SN :* ${document.getElementById(batId).value}\n`;
+            text += `*BATTERY SPARE 1 :* ${document.getElementById(sp1Id).value}\n`;
+            text += `*BATTERY SPARE 2 :* ${document.getElementById(sp2Id).value}\n\n`;
+            text += `*CHARGER SN :* ${document.getElementById(chgId).value}\n\n`;
+            text += `*TROLLY :* ${document.getElementById(trlId).value}\n\n`;
+            text += `*REMARK :* ${document.getElementById(remId).value}\n`;
+        }
+    }
 
     bukaWhatsApp(text);
 }
@@ -767,18 +713,44 @@ function kirimPenarikan() {
 function kirimPengiriman() {
     let text = `Update Job Refurbish\n`;
     text += `*JOB TYPE :* PENGIRIMAN\n\n`;
+    text += `*CABANG :* ${getCabangValue('kirim')}\n`; 
     text += `*CUSTOMER :* ${document.getElementById('kirim_customer').value}\n\n`;
+    
     text += `> _*DETAIL UNIT*_\n`;
-    text += `*TYPE UNIT :* ${document.getElementById('kirim_type').value}\n`;
-    text += `*SN UNIT :* ${document.getElementById('kirim_sn').value}\n`;
-    text += `*YEAR :* ${document.getElementById('kirim_year').value}\n`;
-    text += `*HM :* ${document.getElementById('kirim_hm').value}\n\n`;
-    text += `*BATTERY SN :* ${document.getElementById('kirim_battery').value}\n`;
-    text += `*BATTERY SPARE 1 :* ${document.getElementById('kirim_spare1').value}\n`;
-    text += `*BATTERY SPARE 2 :* ${document.getElementById('kirim_spare2').value}\n\n`;
-    text += `*CHARGER SN :* ${document.getElementById('kirim_charger').value}\n\n`;
-    text += `*TROLLY :* ${document.getElementById('kirim_trolly').value}\n\n`;
-    text += `*REMARK :* ${document.getElementById('kirim_remark').value}`;
+    for(let i = 1; i <= kirimTypeCount; i++) {
+        let typeId = i === 1 ? 'kirim_type' : 'kirim_type' + i;
+        let snId = i === 1 ? 'kirim_sn' : 'kirim_sn' + i;
+        let yearId = i === 1 ? 'kirim_year' : 'kirim_year' + i;
+        let hmId = i === 1 ? 'kirim_hm' : 'kirim_hm' + i;
+
+        if(document.getElementById(typeId)) {
+            if(i > 1) text += `\n`;
+            text += `*TYPE UNIT :* ${document.getElementById(typeId).value}\n`;
+            text += `*SN UNIT :* ${document.getElementById(snId).value}\n`;
+            text += `*YEAR :* ${document.getElementById(yearId).value}\n`;
+            text += `*HM :* ${document.getElementById(hmId).value}\n`;
+        }
+    }
+
+    text += `\n> _*SPESIFIKASI TAMBAHAN*_\n`;
+    for(let i = 1; i <= kirimSpesCount; i++) {
+        let batId = i === 1 ? 'kirim_battery' : 'kirim_battery' + i;
+        let sp1Id = i === 1 ? 'kirim_spare1' : 'kirim_spare1' + i;
+        let sp2Id = i === 1 ? 'kirim_spare2' : 'kirim_spare2' + i;
+        let chgId = i === 1 ? 'kirim_charger' : 'kirim_charger' + i;
+        let trlId = i === 1 ? 'kirim_trolly' : 'kirim_trolly' + i;
+        let remId = i === 1 ? 'kirim_remark' : 'kirim_remark' + i;
+
+        if(document.getElementById(batId)) {
+            if(i > 1) text += `\n`;
+            text += `*BATTERY SN :* ${document.getElementById(batId).value}\n`;
+            text += `*BATTERY SPARE 1 :* ${document.getElementById(sp1Id).value}\n`;
+            text += `*BATTERY SPARE 2 :* ${document.getElementById(sp2Id).value}\n\n`;
+            text += `*CHARGER SN :* ${document.getElementById(chgId).value}\n\n`;
+            text += `*TROLLY :* ${document.getElementById(trlId).value}\n\n`;
+            text += `*REMARK :* ${document.getElementById(remId).value}\n`;
+        }
+    }
 
     bukaWhatsApp(text);
 }
@@ -786,6 +758,7 @@ function kirimPengiriman() {
 function kirimLoan() {
     let text = `Update Job Refurbish\n`;
     text += `*JOB TYPE :* LOAN PART\n\n`;
+    text += `*CABANG :* ${getCabangValue('loan')}\n`; 
     text += `*NOMER LOAN :* ${document.getElementById('loan_nomor').value}\n`;
     text += `*NOMER TO/SO/PR :* ${document.getElementById('loan_to_so_pr').value}\n\n`;
     
@@ -798,28 +771,30 @@ function kirimLoan() {
     text += `*SERIAL NUMBER :* ${document.getElementById('loan_instal_sn').value}\n\n`;
     
     text += `> _*PART*_\n`;
-    text += `*PART NAME :* ${document.getElementById('loan_part_name').value}\n`;
-    text += `*PART NUMBER :* ${document.getElementById('loan_part_number').value}\n`;
-    text += `*QTY PART :* ${document.getElementById('loan_part_qty').value}\n`;
-    text += `*KONDISI PART :* ${document.getElementById('loan_kondisi').value}\n\n`;
+    for(let i = 1; i <= loanPartCount; i++) {
+        let nameId = i === 1 ? 'loan_part_name' : 'loan_part_name' + i;
+        let numId = i === 1 ? 'loan_part_number' : 'loan_part_number' + i;
+        let qtyId = i === 1 ? 'loan_part_qty' : 'loan_part_qty' + i;
+        let konId = i === 1 ? 'loan_kondisi' : 'loan_kondisi' + i;
+
+        if(document.getElementById(nameId)) {
+            if(i > 1) text += `\n`;
+            text += `*PART NAME :* ${document.getElementById(nameId).value}\n`;
+            text += `*PART NUMBER :* ${document.getElementById(numId).value}\n`;
+            text += `*QTY PART :* ${document.getElementById(qtyId).value}\n`;
+            text += `*KONDISI PART :* ${document.getElementById(konId).value}\n`;
+        }
+    }
     
-    text += `*CUSTOMER :* ${document.getElementById('loan_customer').value}\n`;
+    text += `\n*CUSTOMER :* ${document.getElementById('loan_customer').value}\n`;
     
     let divisi = document.getElementById('loan_divisi').value;
-    if(divisi === 'Lainnya') {
-        divisi = document.getElementById('loan_divisi_lain').value;
-    }
+    if(divisi === 'Lainnya') { divisi = document.getElementById('loan_divisi_lain').value; }
     text += `*DIVISI PEMINJAM :* ${divisi}\n`;
     text += `*PIC PEMINJAM :* ${document.getElementById('loan_pic').value}\n`;
     text += `*PENGAMBIL PART :* ${document.getElementById('loan_pengambil').value}`;
 
     bukaWhatsApp(text);
-}
-
-function bukaWhatsApp(teksMurni) {
-    const urlEncodedText = encodeURIComponent(teksMurni);
-    const url = `https://api.whatsapp.com/send?text=${urlEncodedText}`;
-    window.open(url, '_blank');
 }
 </script>
 
